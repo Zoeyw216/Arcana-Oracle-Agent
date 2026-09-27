@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f4ef">
+  <title>Arcana Oracle · 听见内心的回响</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600&family=Cinzel+Decorative:wght@400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/chat.css?v=20260923-orbit">
+  <script type="module" src="js/chat.js?v=20260923-orbit"></script>
+</head>
+<body>
+  <div class="sky" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <header class="masthead">
+    <a class="brand" href="./" aria-label="Arcana Oracle 首页"><span class="brand-moon" aria-hidden="true">☾</span><span>Arcana Oracle<small>A QUIET SPACE WITHIN</small></span></a>
+    <div class="header-actions"><button class="history-toggle" id="openHistory" type="button" aria-label="历史对话" aria-haspopup="dialog"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 5h16M4 12h16M4 19h11"/></svg><span>历史</span></button><button class="new-chat" id="newChat" type="button"><span aria-hidden="true">＋</span> 新的对话</button></div>
+  </header>
+  <dialog id="historyDialog" class="history-drawer" aria-labelledby="historyTitle">
+    <div class="history-top"><div><p class="eyebrow">YOUR QUIET MOMENTS</p><h2 id="historyTitle">往日的对话</h2></div><button id="closeHistory" class="icon-button" aria-label="关闭历史对话">×</button></div>
+    <button id="historyNew" class="drawer-new">＋ 开启新的对话</button>
+    <label class="sr-only" for="historySearch">搜索历史对话</label><input id="historySearch" class="history-search" type="search" placeholder="寻找一段对话…">
+    <div id="historyList" class="history-list"></div>
+    <p class="history-footnote">仅保存在此浏览器 · 随时回来继续聊</p>
+  </dialog>
+  <p id="storageNotice" class="storage-notice" role="status" hidden></p>
+  <main class="sanctuary" id="sanctuary">
+    <section class="welcome" id="welcome" aria-labelledby="welcomeTitle">
+      <div class="celestial" aria-hidden="true">
+        <svg viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="cardShadow" x="-50%" y="-30%" width="200%" height="180%">
+              <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#89765a" flood-opacity=".12"/>
+            </filter>
+            <g id="ivoryCard">
+              <rect width="76" height="128" rx="7" fill="#fffefa" stroke="#d7cbb7" stroke-width=".8"/>
+              <rect x="6" y="6" width="64" height="116" rx="3.5" stroke="#d9cdb9" stroke-width=".65"/>
+              <path d="M13 25V13h12m26 0h12v12M13 103v12h12m26 0h12v-12" stroke="#bba887" stroke-width=".7"/>
+              <path d="M38 31v8m0 50v8" stroke="#c5b393" stroke-width=".7"/>
+              <circle cx="38" cy="64" r="17" stroke="#d8ccb6" stroke-width=".6"/>
+              <path d="m38 45 3.5 15.5L53 64l-11.5 3.5L38 83l-3.5-15.5L23 64l11.5-3.5Z" stroke="#b8a17d" stroke-width=".8" fill="#f6f0e5"/>
+              <circle cx="38" cy="64" r="2" fill="#baa47f"/>
+              <circle cx="38" cy="23" r="1" fill="#c6b394"/>
+              <circle cx="38" cy="105" r="1" fill="#c6b394"/>
+            </g>
+          </defs>
+          <g filter="url(#cardShadow)">
+            <use href="#ivoryCard" transform="translate(36 53) rotate(-19 38 108)"/>
+            <use href="#ivoryCard" transform="translate(108 53) rotate(19 38 108)"/>
+            <use href="#ivoryCard" transform="translate(72 39)"/>
+          </g>
+          <path d="m110 16 1.5 5.5L117 23l-5.5 1.5L110 30l-1.5-5.5L103 23l5.5-1.5Z" fill="#bda985" opacity=".65"/>
+          <circle cx="25" cy="53" r="1.2" fill="#c6b595" opacity=".6"/>
+          <circle cx="197" cy="64" r="1" fill="#c6b595" opacity=".6"/>
+        </svg>
+      </div>
+      <p class="eyebrow">THE ANSWER BEGINS WITHIN</p>
+      <h1 id="welcomeTitle">欢迎来到占卜小屋</h1>
+      <p class="welcome-copy">此刻，什么萦绕在你心上？</p>
+      <div class="conversation-starters" aria-label="选择一个话题开始">
+        <button type="button" data-prompt="关于一段关系，我有些话想聊聊。"><span aria-hidden="true">♡</span> 关于关系</button>
+        <button type="button" data-prompt="我正站在人生的岔路口，不知道该怎么选择。"><span aria-hidden="true">⌁</span> 面对选择</button>
+        <button type="button" data-prompt="最近有点迷失，想更了解现在的自己。"><span aria-hidden="true">✧</span> 探索自己</button>
+      </div>
+    </section>
+    <section class="conversation" id="conversation" aria-label="与神秘占卜师的对话" hidden>
+      <div class="conversation-heading"><span>✧</span> 每一次倾诉，都是靠近自己的开始 <span>✧</span></div>
+      <div id="messages" role="log" aria-live="polite" aria-relevant="additions" aria-label="对话消息"></div>
+    </section>
+    <div class="composer-wrap">
+      <form class="composer" id="chatForm">
+        <label class="sr-only" for="messageInput">你想聊的事情</label>
+        <textarea id="messageInput" rows="1" maxlength="2000" placeholder="把你想说的，慢慢写在这里…" aria-describedby="inputHint"></textarea>
+        <div class="composer-bottom"><button class="send" id="sendButton" type="submit" aria-label="发送消息" disabled><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg></button></div>
+      </form>
+      <div class="under-composer"><span id="inputHint">Enter 发送 <span class="hint-divider">·</span> Shift + Enter 换行</span><span class="preview-label">AI 对话 · 专业牌义知识库</span></div>
+    </div>
+  </main>
+  <footer class="footer"><span class="footer-line"></span><p>让星光照见你，让答案回到你心里</p><span class="footer-line"></span><small>ARCANA ORACLE · MADE BY ZOEY WANG</small></footer>
+</body>
+</html>
